@@ -1,6 +1,6 @@
 #Crossbar HTTP
 
-I wanted to enhance "crossbarconnect" but the repository is no where to be found, so I created this one.
+Module that provides methods for accessing Crossbar.io HTTP Bridge Services
 
 #Call
 To call a Crossbar HTTP bridge, do the following
@@ -34,12 +34,12 @@ The receiving subscription would look like
         self.subscribe(subscribe_something, "com.example.event") 
 
 #Exceptions
-The library will throw the following exceptions.  Note that all exceptions subclass from "Client.ClientBaseException" so
+The library will throw the following exceptions.  Note that all exceptions subclass from "ClientBaseException" so
 you can just catch that if you don't want the granularity.
 
-  - Client.NoCalleeRegistered - Raised when a callee was not registered on the router for the specified procedure
-  - Client.BadUrl - The specified URL is not a HTTP bridge service
-  - Client.BadHost - The specified host name is rejecting the connection
+  - ClientNoCalleeRegistered - Raised when a callee was not registered on the router for the specified procedure
+  - ClientBadUrl - The specified URL is not a HTTP bridge service
+  - ClientBadHost - The specified host name is rejecting the connection
 
 #Contributing
 To contribute, fork the repo and submit a pull request.  I have the following known "TODO"s.

@@ -1,1 +1,1 @@
-from crossbarhttp import Client
+from crossbarhttp import (Client, ClientBadHost, ClientBadUrl, ClientBaseException, ClientNoCalleeRegistered)

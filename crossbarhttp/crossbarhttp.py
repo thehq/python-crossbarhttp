@@ -2,31 +2,35 @@ import json
 import urllib2
 
 
+class ClientBaseException(Exception):
+    """
+    Catch all Exception for this class
+    """
+    pass
+
+
+class ClientNoCalleeRegistered(ClientBaseException):
+    """
+    Exception thrown when no callee was registered
+    """
+    pass
+
+
+class ClientBadUrl(ClientBaseException):
+    """
+    Exception thrown when the URL is invalid
+    """
+    pass
+
+
+class ClientBadHost(ClientBaseException):
+    """
+    Exception thrown when the host name is invalid
+    """
+    pass
+
+
 class Client(object):
-
-    class ClientBaseException(Exception):
-        """
-        Catch all Exception for this class
-        """
-        pass
-
-    class NoCalleeRegistered(ClientBaseException):
-        """
-        Exception thrown when no callee was registered
-        """
-        pass
-
-    class BadUrl(ClientBaseException):
-        """
-        Exception thrown when the URL is invalid
-        """
-        pass
-
-    class BadHost(ClientBaseException):
-        """
-        Exception thrown when the host name is invalid
-        """
-        pass
 
     def __init__(self, url, verbose=False):
         """
@@ -80,7 +84,7 @@ class Client(object):
             value = response["args"][0]
 
             if isinstance(value, (str, unicode)) and "no callee registered" in value:
-                raise self.NoCalleeRegistered(value)
+                raise ClientNoCalleeRegistered(value)
 
             return value
         else:
@@ -107,6 +111,6 @@ class Client(object):
             response = urllib2.urlopen(request).read()
             return json.loads(response)
         except urllib2.HTTPError, e:
-            raise self.BadUrl(str(e))
+            raise ClientBadUrl(str(e))
         except urllib2.URLError, e:
-            raise self.BadHost(str(e))
+            raise ClientBadHost(str(e))
