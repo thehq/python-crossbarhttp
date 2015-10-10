@@ -13,7 +13,7 @@ Module that provides methods for accessing Crossbar.io HTTP Bridge Services
   - v0.1:
     - Initial version
 
-##Use
+##Usage
 
 ###Call
 To call a Crossbar HTTP bridge, do the following
@@ -31,7 +31,7 @@ This will call the following method
 
         self.register(add_something, "com.example.add")
         
-###Procedure
+###Publish
 To publish to a Crossbar HTTP bridge, do the following
 
     client = Client("http://127.0.0.1/publish")
