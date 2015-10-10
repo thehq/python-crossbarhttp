@@ -2,6 +2,8 @@
 
 Module that provides methods for accessing Crossbar.io HTTP Bridge Services
 
+Build Status: [![Circle CI](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master.svg?style=svg)](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master)
+
 #Call
 To call a Crossbar HTTP bridge, do the following
 
