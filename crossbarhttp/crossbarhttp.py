@@ -4,6 +4,30 @@ import urllib2
 
 class Client(object):
 
+    class ClientBaseException(Exception):
+        """
+        Catch all Exception for this class
+        """
+        pass
+
+    class NoCalleeRegistered(ClientBaseException):
+        """
+        Exception thrown when no callee was registered
+        """
+        pass
+
+    class BadUrl(ClientBaseException):
+        """
+        Exception thrown when the URL is invalid
+        """
+        pass
+
+    class BadHost(ClientBaseException):
+        """
+        Exception thrown when the host name is invalid
+        """
+        pass
+
     def __init__(self, url, verbose=False):
         """
         Creates a client to connect to the HTTP bridge services
@@ -22,7 +46,7 @@ class Client(object):
         :param topic: The topic to publish to
         :param args: The arguments
         :param kwargs: The key/word arguments
-        :return: Nothing
+        :return: The ID of the publish
         """
         assert topic is not None
 
@@ -32,7 +56,8 @@ class Client(object):
             "kwargs": kwargs
         }
 
-        self.make_api_call("POST", self.url, json_params=params)
+        response = self.make_api_call("POST", self.url, json_params=params)
+        return response["id"]
 
     def call(self, procedure, *args, **kwargs):
         """
@@ -52,7 +77,12 @@ class Client(object):
 
         response = self.make_api_call("POST", self.url, json_params=params)
         if "args" in response and len(response["args"]) > 0:
-            return response["args"][0]
+            value = response["args"][0]
+
+            if isinstance(value, (str, unicode)) and "no callee registered" in value:
+                raise self.NoCalleeRegistered(value)
+
+            return value
         else:
             return None
 
@@ -71,7 +101,12 @@ class Client(object):
         if encoded_params is not None and self.verbose is True:
             print "Params: "+encoded_params
 
-        request = urllib2.Request(url, encoded_params, headers)
-        request.get_method = lambda: method
-        response = urllib2.urlopen(request).read()
-        return json.loads(response)
+        try:
+            request = urllib2.Request(url, encoded_params, headers)
+            request.get_method = lambda: method
+            response = urllib2.urlopen(request).read()
+            return json.loads(response)
+        except urllib2.HTTPError, e:
+            raise self.BadUrl(str(e))
+        except urllib2.URLError, e:
+            raise self.BadHost(str(e))

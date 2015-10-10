@@ -15,7 +15,7 @@ function run() {
 
 cd /app/
 
-sleep 2
+sleep 5
 
 run "python -u crossbarhttp_tests.py"
 

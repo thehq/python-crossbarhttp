@@ -31,8 +31,15 @@ The receiving subscription would look like
         def subscribe_something(event=None, **kwargs):
             print "Publish was called with event %s" % event
 
-        self.subscribe(subscribe_something, "test.publish")  
- 
+        self.subscribe(subscribe_something, "com.example.event") 
+
+#Exceptions
+The library will throw the following exceptions.  Note that all exceptions subclass from "Client.ClientBaseException" so
+you can just catch that if you don't want the granularity.
+
+  - Client.NoCalleeRegistered - Raised when a callee was not registered on the router for the specified procedure
+  - Client.BadUrl - The specified URL is not a HTTP bridge service
+  - Client.BadHost - The specified host name is rejecting the connection
 
 #Contributing
 To contribute, fork the repo and submit a pull request.  I have the following known "TODO"s.
@@ -48,7 +55,7 @@ host and type
     %> docker-compose build
     %> docker-compose up
     
-This will run the unit tests as well as the system level tests.  The service "wamptest_test_1" will return a 0 value
+This will run the unit tests as well as the system level tests.  The service "crossbarhttp_test_1" will return a 0 value
 if the tests were successful and non zero otherwise.  To get the pass/fail results from a command line, do the following
 
     #!/usr/bin/env bash
