@@ -51,6 +51,25 @@
                      "realm": "realm1",
                      "role": "anonymous"
                   }
+                  ,
+                  "call-signature": {
+                     "type": "caller",
+                     "realm": "realm1",
+                     "role": "anonymous",
+                     "options": {
+                        "key": "key",
+                        "secret": "secret"
+                     }
+                  },
+                  "publish-signature": {
+                     "type": "publisher",
+                     "realm": "realm1",
+                     "role": "anonymous",
+                     "options": {
+                        "key": "key",
+                        "secret": "secret"
+                     }
+                  }
                }
             }
          ]

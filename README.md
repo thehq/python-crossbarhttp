@@ -3,6 +3,16 @@
 Module that provides methods for accessing Crossbar.io HTTP Bridge Services
 
 Build Status: [![Circle CI](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master.svg?style=svg)](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master)
+Version: 0.1.1
+
+##0.1.1 Changes
+
+  - Added class defined Exceptions for specific events
+  - Added key/secret handling
+
+##0.1
+
+  - Initial version
 
 #Call
 To call a Crossbar HTTP bridge, do the following
@@ -35,6 +45,12 @@ The receiving subscription would look like
 
         self.subscribe(subscribe_something, "com.example.event") 
 
+#Key/Secret
+For bridge services that have a key and secret defined, simply include the key and secret in the instantiation of the
+client.
+
+    client = Client("http://127.0.0.1/publish", key="key", secret="secret")
+
 #Exceptions
 The library will throw the following exceptions.  Note that all exceptions subclass from "ClientBaseException" so
 you can just catch that if you don't want the granularity.
@@ -42,13 +58,11 @@ you can just catch that if you don't want the granularity.
   - ClientNoCalleeRegistered - Raised when a callee was not registered on the router for the specified procedure
   - ClientBadUrl - The specified URL is not a HTTP bridge service
   - ClientBadHost - The specified host name is rejecting the connection
+  - ClientMissingParams - The call was missing parameters
+  - ClientSignatureError - The signature did not match
 
 #Contributing
-To contribute, fork the repo and submit a pull request.  I have the following known "TODO"s.
-
-##TODOs
-
-  - Implement authenticated connections
+To contribute, fork the repo and submit a pull request.
 
 #Testing
 The overall system test (which will also run the unit tests) can be run by using Docker Compose.  Connect to a docker 

@@ -1,4 +1,5 @@
 from autobahn.twisted.wamp import ApplicationSession
+from autobahn.wamp import auth
 
 
 class TestSession(ApplicationSession):

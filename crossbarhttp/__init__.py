@@ -1,1 +1,2 @@
-from crossbarhttp import (Client, ClientBadHost, ClientBadUrl, ClientBaseException, ClientNoCalleeRegistered)
+from crossbarhttp import (Client, ClientBadHost, ClientBadUrl, ClientMissingParams,
+                          ClientBaseException, ClientNoCalleeRegistered, ClientSignatureError)
