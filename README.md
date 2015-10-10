@@ -13,6 +13,10 @@ Module that provides methods for accessing Crossbar.io HTTP Bridge Services
   - v0.1:
     - Initial version
 
+##Installation
+
+    pip install crossbarhttp
+
 ##Usage
 
 ###Call
