@@ -3,7 +3,7 @@ setup(
     name='crossbarhttp',
     packages=['crossbarhttp'],
     version='0.1.1',
-    description='This is a library for connecting to Crossbar.io HTTP Bridge Services',
+    description='This is a library for connecting to Crossbar.io HTTP Bridge Services.',
     author='Eric Chapman',
     license='MIT',
     author_email='eric@thehq.io',
