@@ -12,4 +12,4 @@ test:
     - exit $(docker-compose ps -q | xargs docker inspect -f '{{ .Name }} exited with status {{ .State.ExitCode }}' | grep test_1 | cut -f5 -d ' ')
 
   post:
-    - mv .coverage $CIRCLE_ARTIFACTS/.
+    - mv /app/.coverage $CIRCLE_ARTIFACTS/.

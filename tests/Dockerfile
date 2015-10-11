@@ -1,5 +1,5 @@
 FROM thehq/crossbar:0.11.1
-MAINTAINER Eric Chapman <eric@headquartershq.com>
+MAINTAINER Eric Chapman <eric@thehq.io>
 
 COPY .crossbar/ /app/.crossbar/
 COPY src/ /app/src/

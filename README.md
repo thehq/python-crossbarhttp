@@ -71,14 +71,15 @@ you can just catch that if you don't want the granularity.
 To contribute, fork the repo and submit a pull request.
 
 ## Testing
-The overall system test (which will also run the unit tests) can be run by using Docker Compose.  Connect to a docker 
-host and type
+The test can be run by using Docker Compose.  Connect to a docker host and type
 
     %> docker-compose build
     %> docker-compose up
+
+The Docker Compose file creates a generic router with an example service connected to it and runs the tests.
     
-This will run the unit tests as well as the system level tests.  The service "crossbarhttp_test_1" will return a 0 value
-if the tests were successful and non zero otherwise.  To get the pass/fail results from a command line, do the following
+The service "crossbarhttp_test_1" will return a 0 value if the tests were successful and non zero otherwise.  To get the
+pass/fail results from a command line, do the following
 
     #!/usr/bin/env bash
     
@@ -88,8 +89,6 @@ if the tests were successful and non zero otherwise.  To get the pass/fail resul
     exit $(docker-compose ps -q | xargs docker inspect -f '{{ .Name }} exited with status {{ .State.ExitCode }}' | grep test_1 | cut -f5 -d ' ')
 
 This is a little hacky (and hopefully Docker will fix it) but it will do the trick for now.
-
-The Docker Compose file creates a generic router with an example service connected to it.
 
 ##License
 MIT
