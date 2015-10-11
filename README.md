@@ -1,10 +1,10 @@
 # Crossbar HTTP
 
-Module that provides methods for accessing Crossbar.io HTTP Bridge Services
-
-[![PyPi version](https://pypip.in/v/crossbarhttp/badge.png)](https://crate.io/packages/crossbarhttp/)
-[![PyPi downloads](https://pypip.in/d/crossbarhttp/badge.png)](https://crate.io/packages/crossbarhttp/)
+[![PyPi version](https://img.shields.io/pypi/v/crossbarhttp.svg)](https://pypi.python.org/pypi/crossbarhttp)
+[![PyPi downloads](https://img.shields.io/pypi/dm/crossbarhttp.svg)](https://pypi.python.org/pypi/crossbarhttp)
 [![Circle CI](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master.svg?style=shield)](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master)
+
+Module that provides methods for accessing Crossbar.io HTTP Bridge Services
 
 ## Revision History
 
@@ -61,7 +61,7 @@ client.
 The library will throw the following exceptions.  Note that all exceptions subclass from "ClientBaseException" so
 you can just catch that if you don't want the granularity.
 
-  - ClientNoCalleeRegistered - Raised when a callee was not registered on the router for the specified procedure
+  - ClientNoCalleeRegistered - Callee was not registered on the router for the specified procedure
   - ClientBadUrl - The specified URL is not a HTTP bridge service
   - ClientBadHost - The specified host name is rejecting the connection
   - ClientMissingParams - The call was missing parameters
