@@ -18,5 +18,6 @@ cd /home/ubuntu/python-crossbarhttp/
 sleep 5
 
 run "coverage run --source=crossbarhttp crossbarhttp_tests.py"
+cp .coverage /data/.coverage
 
 sleep 1

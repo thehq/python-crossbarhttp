@@ -3,9 +3,11 @@ MAINTAINER Eric Chapman <eric@thehq.io>
 
 RUN pip install coverage
 
-COPY crossbarhttp/ /home/ubuntu/python-crossbarhttp/crossbarhttp/
-COPY tests/*.py /home/ubuntu/python-crossbarhttp/
-COPY tests/run_test.sh /home/ubuntu/python-crossbarhttp/run_test.sh
-RUN chmod +x /home/ubuntu/python-crossbarhttp/run_test.sh
+ENV DIRECTORY=/home/ubuntu/python-crossbarhttp
 
-ENTRYPOINT ["/home/ubuntu/python-crossbarhttp/run_test.sh"]
+COPY crossbarhttp/ ${DIRECTORY}/crossbarhttp
+COPY tests/*.py ${DIRECTORY}/
+COPY tests/run_test.sh ${DIRECTORY}/run_test.sh
+RUN chmod +x ${DIRECTORY}/run_test.sh
+
+ENTRYPOINT ["${DIRECTORY}/run_test.sh"]
