@@ -18,7 +18,5 @@ cd /app/
 sleep 5
 
 run "coverage run --source=crossbarhttp crossbarhttp_tests.py"
-mkdir $CIRCLE_ARTIFACTS/coverage
-mv .coverage $CIRCLE_ARTIFACTS/coverage/.
 
 sleep 1
