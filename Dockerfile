@@ -1,5 +1,7 @@
-FROM erichq/crossbar
+FROM thehq/crossbar
 MAINTAINER Eric Chapman <eric@headquartershq.com>
+
+RUN pip install coverage
 
 COPY crossbarhttp/ /app/crossbarhttp/
 COPY tests/*.py /app/

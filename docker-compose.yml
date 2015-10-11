@@ -7,3 +7,6 @@ test:
   build: .
   links:
     - router
+  environment:
+    ROUTER_URL: http://router:8080
+    CIRCLE_ARTIFACTS:
