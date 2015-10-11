@@ -1,11 +1,12 @@
-#Crossbar HTTP
+# Crossbar HTTP
 
 Module that provides methods for accessing Crossbar.io HTTP Bridge Services
 
-  - Build Status: [![Circle CI](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master.svg?style=svg)](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master)
-  - Current Version: 0.1.1
+[![PyPi version](https://pypip.in/v/crossbarhttp/badge.png)](https://crate.io/packages/crossbarhttp/)
+[![PyPi downloads](https://pypip.in/d/crossbarhttp/badge.png)](https://crate.io/packages/crossbarhttp/)
+[![Circle CI](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master.svg?style=shield)](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master)
 
-##Revision History
+## Revision History
 
   - v0.1.1:
     - Added class defined Exceptions for specific events
@@ -13,13 +14,13 @@ Module that provides methods for accessing Crossbar.io HTTP Bridge Services
   - v0.1:
     - Initial version
 
-##Installation
+## Installation
 
     pip install crossbarhttp
 
-##Usage
+## Usage
 
-###Call
+### Call
 To call a Crossbar HTTP bridge, do the following
 
     client = Client("http://127.0.0.1/call")
@@ -35,7 +36,7 @@ This will call the following method
 
         self.register(add_something, "com.example.add")
         
-###Publish
+### Publish
 To publish to a Crossbar HTTP bridge, do the following
 
     client = Client("http://127.0.0.1/publish")
@@ -50,13 +51,13 @@ The receiving subscription would look like
 
         self.subscribe(subscribe_something, "com.example.event") 
 
-###Key/Secret
+### Key/Secret
 For bridge services that have a key and secret defined, simply include the key and secret in the instantiation of the
 client.
 
     client = Client("http://127.0.0.1/publish", key="key", secret="secret")
 
-###Exceptions
+### Exceptions
 The library will throw the following exceptions.  Note that all exceptions subclass from "ClientBaseException" so
 you can just catch that if you don't want the granularity.
 
@@ -66,10 +67,10 @@ you can just catch that if you don't want the granularity.
   - ClientMissingParams - The call was missing parameters
   - ClientSignatureError - The signature did not match
 
-##Contributing
+## Contributing
 To contribute, fork the repo and submit a pull request.
 
-##Testing
+## Testing
 The overall system test (which will also run the unit tests) can be run by using Docker Compose.  Connect to a docker 
 host and type
 
