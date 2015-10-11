@@ -7,5 +7,7 @@ test:
   build: .
   links:
     - router
+  volumes:
+    - "/home/ubuntu/python-crossbarhttp:/data"
   environment:
     ROUTER_URL: http://router:8080
