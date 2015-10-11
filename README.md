@@ -2,7 +2,7 @@
 
 [![PyPi version](https://img.shields.io/pypi/v/crossbarhttp.svg)](https://pypi.python.org/pypi/crossbarhttp)
 [![PyPi downloads](https://img.shields.io/pypi/dm/crossbarhttp.svg)](https://pypi.python.org/pypi/crossbarhttp)
-[![Circle CI](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master.svg?style=shield)](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master)
+[![Circle CI](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master.svg?style=shield&circle-token=7e41f7fa67cadba9f0a3465cfb04fdeee4c31357)](https://circleci.com/gh/thehq/python-crossbarhttp/tree/master)
 
 Module that provides methods for accessing Crossbar.io HTTP Bridge Services
 
