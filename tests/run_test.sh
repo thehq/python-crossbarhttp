@@ -13,7 +13,7 @@ function run() {
   return $return_value
 }
 
-cd /app/
+cd /home/ubuntu/python-crossbarhttp/
 
 sleep 5
 

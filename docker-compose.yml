@@ -8,6 +8,6 @@ test:
   links:
     - router
   volumes:
-    - "/home/ubuntu/python-crossbarhttp:/data"
+    - "/home/ubuntu/python-crossbarhttp:/home/ubuntu/python-crossbarhttp"
   environment:
     ROUTER_URL: http://router:8080
