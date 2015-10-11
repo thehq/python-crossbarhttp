@@ -7,6 +7,8 @@ test:
   build: .
   links:
     - router
+  volumes:
+    - "/data:/data"
   environment:
     ROUTER_URL: http://router:8080
     CIRCLE_ARTIFACTS:
