@@ -12,4 +12,5 @@ test:
     - exit $(docker-compose ps -q | xargs docker inspect -f '{{ .Name }} exited with status {{ .State.ExitCode }}' | grep test_1 | cut -f5 -d ' ')
 
   post:
-    - cp /data/.coverage $CIRCLE_ARTIFACTS/.coverage
+    - pip install codecov
+    - codecov --token=3f084b3b-4aa8-43fb-a9bb-c3bfd6218dc3
