@@ -1,4 +1,4 @@
-FROM erichq/crossbar
+FROM thehq/crossbar:0.11.1
 MAINTAINER Eric Chapman <eric@headquartershq.com>
 
 COPY .crossbar/ /app/.crossbar/

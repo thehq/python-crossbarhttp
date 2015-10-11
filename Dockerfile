@@ -1,4 +1,4 @@
-FROM thehq/crossbar
+FROM thehq/crossbar:0.11.1
 MAINTAINER Eric Chapman <eric@headquartershq.com>
 
 RUN pip install coverage
