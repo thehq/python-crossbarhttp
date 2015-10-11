@@ -13,4 +13,4 @@ test:
 
   post:
     - pip install codecov
-    - codecov --token=3f084b3b-4aa8-43fb-a9bb-c3bfd6218dc3
+    - codecov --token=$CODECOV_TOKEN

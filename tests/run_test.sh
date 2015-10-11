@@ -18,6 +18,5 @@ cd /app/
 sleep 5
 
 run "coverage run --source=crossbarhttp crossbarhttp_tests.py"
-mv .coverage /data/.
 
 sleep 1
