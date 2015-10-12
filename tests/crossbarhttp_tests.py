@@ -1,6 +1,7 @@
 import unittest
 import crossbarhttp
 import os
+from mock import MagicMock
 
 class CrossbarHttpTests(unittest.TestCase):
 
@@ -87,6 +88,21 @@ class CrossbarHttpTests(unittest.TestCase):
                                      key="key", secret="secret")
         publish_id = client.publish("test.publish", 4, 7, event="new event")
         self.assertIsNotNone(publish_id)
+
+    def test_verbose(self):
+        client = crossbarhttp.Client(self.__class__.url + "/call-signature",
+                                     key="key", secret="secret", verbose=True)
+        result = client.call("test.add", 2, 3, offset=10)
+        self.assertEqual(result, 15)
+
+    def test_invalid_call_params(self):
+        client = crossbarhttp.Client(self.__class__.url + "/call-signature",
+                                     key="key", secret="secret")
+
+        client._make_api_call = MagicMock(return_value="{}")
+
+        result = client.call("test.add", 2, 3, offset=10)
+        self.assertIsNone(result)
 
     #def test_call_bad_parameters(self):
     #    client = Client(self.__class__.url + "/call", verbose=True)

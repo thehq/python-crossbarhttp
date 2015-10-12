@@ -1,7 +1,9 @@
 FROM thehq/crossbar:0.11.1
 MAINTAINER Eric Chapman <eric@thehq.io>
 
-RUN pip install coverage
+RUN pip install \
+    coverage \
+    mock
 
 COPY crossbarhttp/ /home/ubuntu/python-crossbarhttp/crossbarhttp
 COPY tests/*.py /home/ubuntu/python-crossbarhttp/
