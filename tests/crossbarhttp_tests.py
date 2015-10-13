@@ -104,6 +104,12 @@ class CrossbarHttpTests(unittest.TestCase):
         result = client.call("test.add", 2, 3, offset=10)
         self.assertIsNone(result)
 
+    def test_no_call_params(self):
+        client = crossbarhttp.Client(self.__class__.url + "/call")
+
+        with self.assertRaises(crossbarhttp.ClientMissingParams) as context:
+            client._make_api_call("POST", client.url)
+
     #def test_call_bad_parameters(self):
     #    client = Client(self.__class__.url + "/call", verbose=True)
 
