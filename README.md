@@ -10,6 +10,8 @@ Module that provides methods for accessing Crossbar.io HTTP Bridge Services
 
 ## Revision History
 
+  - v0.1.2:
+    - Added "ClientCallRuntimeError" exception for general errors
   - v0.1.1:
     - Added class defined Exceptions for specific events
     - Added key/secret handling
@@ -63,11 +65,12 @@ client.
 The library will throw the following exceptions.  Note that all exceptions subclass from "ClientBaseException" so
 you can just catch that if you don't want the granularity.
 
-  - ClientNoCalleeRegistered - Callee was not registered on the router for the specified procedure
   - ClientBadUrl - The specified URL is not a HTTP bridge service
   - ClientBadHost - The specified host name is rejecting the connection
   - ClientMissingParams - The call was missing parameters
   - ClientSignatureError - The signature did not match
+  - ClientNoCalleeRegistered - Callee was not registered on the router for the specified procedure
+  - ClientCallRuntimeError - Procedure triggered an exception
 
 ## Contributing
 To contribute, fork the repo and submit a pull request.

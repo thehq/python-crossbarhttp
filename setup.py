@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
     name='crossbarhttp',
     packages=['crossbarhttp'],
-    version='0.1.1',
+    version='0.1.2',
     description='This is a library for connecting to Crossbar.io HTTP Bridge Services.',
     author='Eric Chapman',
     license='MIT',

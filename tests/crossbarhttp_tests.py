@@ -110,17 +110,10 @@ class CrossbarHttpTests(unittest.TestCase):
         with self.assertRaises(crossbarhttp.ClientMissingParams) as context:
             client._make_api_call("POST", client.url)
 
-    #def test_call_bad_parameters(self):
-    #    client = Client(self.__class__.url + "/call", verbose=True)
-
-    #    with self.assertRaises(Client.BadHost) as context:
-    #        client.call("test.add", 2, 3, 4, 5, 6, offset=10)
-
-    #def test_call_exception(self):
-    #    client = Client(self.__class__.url + "/call", verbose=True)
-
-    #    with self.assertRaises(Client.BadHost) as context:
-    #        client.call("test.exception")
+    def test_call_exception(self):
+        client = crossbarhttp.Client(self.__class__.url + "/call")
+        with self.assertRaises(crossbarhttp.ClientCallRuntimeError) as context:
+            client.call("test.exception")
 
 
 if __name__ == '__main__':

@@ -13,8 +13,8 @@ class TestSession(ApplicationSession):
         self.register(add_something, "test.add")
 
         def throw_exception():
-            print "Exception"
-            raise Exception()
+            print "Exception Thrown"
+            raise Exception("Exception Thrown")
 
         self.register(throw_exception, "test.exception")
 

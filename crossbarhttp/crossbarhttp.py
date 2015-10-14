@@ -47,6 +47,12 @@ class ClientSignatureError(ClientBaseException):
     """
     pass
 
+class ClientCallRuntimeError(ClientBaseException):
+    """
+    Exception thrown when a call generated an exception
+    """
+    pass
+
 
 class Client(object):
 
@@ -103,15 +109,19 @@ class Client(object):
         }
 
         response = self._make_api_call("POST", self.url, json_params=params)
+
+        value = None
         if "args" in response and len(response["args"]) > 0:
             value = response["args"][0]
 
-            if isinstance(value, (str, unicode)) and "no callee registered" in value:
+        if "error" in response:
+            error = response["error"]
+            if "wamp.error.no_such_procedure" in error:
                 raise ClientNoCalleeRegistered(value)
+            else:
+                raise ClientCallRuntimeError(value)
 
-            return value
-        else:
-            return None
+        return value
 
     def _compute_signature(self, body):
         """
@@ -183,7 +193,9 @@ class Client(object):
             response = urllib2.urlopen(request).read()
             if self.verbose is True:
                 print "crossbarhttp: Response: " + response
+
             return json.loads(response)
+
         except urllib2.HTTPError, e:
             if e.code == 400:
                 raise ClientMissingParams(str(e))
